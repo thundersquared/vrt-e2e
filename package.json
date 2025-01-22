@@ -1,0 +1,20 @@
+{
+  "name": "vrt-e2e",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx nightwatch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@nightwatch/vrt": "^3.5.2",
+    "@swc/core": "^1.10.9",
+    "@types/jest": "^29.5.14",
+    "nightwatch": "^3.11.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3"
+  }
+}

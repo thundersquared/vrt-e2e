@@ -1,0 +1,45 @@
+name: Nightwatch
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+  schedule:
+    - cron: "0 */3 * * *"
+
+jobs:
+  build:
+
+    runs-on: ubuntu-24.04
+
+    strategy:
+      matrix:
+        node-version: [22.x]
+
+    steps:
+    - uses: actions/checkout@v4.2.2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4.1.0
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    - uses: actions/cache@v4.2.0
+      with:
+        path: |
+          tests_output/
+          vrt/
+          vrt-report/
+        key: ${{ runner.os }}-${{ matrix.node-version }}-nightwatch
+    - run: npm ci
+    - run: sudo apt install xvfb -y
+    - run: xvfb-run --auto-servernum npm test -- --env chrome
+    - name: Archive test results
+      if: always()
+      uses: actions/upload-artifact@v4.6.0
+      with:
+        name: test-reports
+        compression-level: 9
+        path: |
+          tests_output/
+          vrt/
+          vrt-report/
