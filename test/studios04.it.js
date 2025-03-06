@@ -1,14 +1,14 @@
-describe("staging5646.studios04.com", () => {
+describe("studios04.it", () => {
   this.tags = ["sqrd"];
-  this.siteKey = "staging5646.studios04.com";
+  this.siteKey = "studios04.it";
 
-  before((browser) => browser.navigateTo("https://staging5646.studios04.com/"));
+  before((browser) => browser.navigateTo("https://studios04.it/"));
 
-  it("test staging5646.studios04.com", (browser) => {
+  it("test studios04.it", (browser) => {
     browser
       .waitForElementVisible("body")
-      .assert.titleContains(
-        "studios04 / La task-force dedicata al tuo successo."
+      .assert.titleEquals(
+        "studios04 / Un team che trasforma le tue idee in successo"
       );
 
     browser.assert.screenshotIdenticalToBaseline(
@@ -27,6 +27,13 @@ describe("staging5646.studios04.com", () => {
       .assert.screenshotIdenticalToBaseline(
         "#booking",
         `${this.siteKey}-booking`
+      );
+
+    browser
+      .waitForElementVisible(".cmplz-cookiebanner")
+      .assert.screenshotIdenticalToBaseline(
+        ".cmplz-cookiebanner",
+        `${this.siteKey}-cookiebanner`
       );
   });
 
