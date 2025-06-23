@@ -12,7 +12,7 @@
   "devDependencies": {
     "@nightwatch/vrt": "^3.5.2",
     "@swc/core": "^1.12.5",
-    "@types/jest": "^29.5.14",
+    "@types/jest": "^30.0.0",
     "nightwatch": "^3.12.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
