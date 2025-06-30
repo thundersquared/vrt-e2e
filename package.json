@@ -11,7 +11,7 @@
   "description": "",
   "devDependencies": {
     "@nightwatch/vrt": "^3.5.2",
-    "@swc/core": "^1.12.5",
+    "@swc/core": "^1.12.7",
     "@types/jest": "^30.0.0",
     "nightwatch": "^3.12.2",
     "ts-node": "^10.9.2",
